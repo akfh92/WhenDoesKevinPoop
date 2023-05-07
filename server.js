@@ -26,19 +26,38 @@ async function checkLastGame() {
     let data = await response.json();
     //check this with global variable(LastGame) and if they match return false
     if(data[0]==LastGame){
-        return [false,''];
+        return false;
     }
     //else return true
     LastGame = data[0];
-    return [true,data];
+    return true;
 
 }
+
+
 //-------------------------checkPooped-------------------------//
 async function checkPooped(){
-    let url = 'https://americas.api.riotgames.com/lol/match/v5/matches/NA1_4648782588?api_key='+ config.RIOT_API_KEY;
+    
+    let url = 'https://americas.api.riotgames.com/lol/match/v5/matches/'+LastGame+'?api_key='+ config.RIOT_API_KEY;
     let response = await fetch(url);
     let data = await response.json();
-    console.log(data);
+    //find participant
+    jsonData1=data.metadata.participants;
+    let participantNum;
+    for(let i=0; i<jsonData1.length;i++){
+        if(jsonData1[i]==config.puuid){
+            participantNum=i;
+        }    
+    }
+    //console.log(data.info.participants[participantNum]);
+    let retObject={
+        kda:data.info.participants[participantNum].kda
+    };
+    console.log(data.metadata.participants[participantNum]);
+    console.log(data.info.participants[participantNum].challenges.kda);
+    
+
+    
 }
 //-------------------------checkPooped-------------------------//
 
@@ -47,11 +66,14 @@ async function checkPooped(){
 
 //-------------------------checkLastGame-------------------------//
 
+
+
 //————————————MAIN FUNCTION————————————//
 async function main(){
     setInterval(async function () {
         //call a function that returns true if kevin played another game                           -> function name checkLastGame()
-        //let lastGameCheck = await checkLastGame(); 
+        let lastGameCheck = await checkLastGame();
+        
 
         // if checkLastGame returns true, check if he pooped; if pooped, return true.              -> function name checkPooped()
         checkPooped();
@@ -61,7 +83,7 @@ async function main(){
     
     
     
-    }, 2000) // 120000 miliseconds = 20 minutes
+    }, 200000) // 120000 miliseconds = 20 minutes
 }
 //————————————MAIN FUNCTION————————————//
 main()
