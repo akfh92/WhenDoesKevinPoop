@@ -6,8 +6,7 @@ const app = express();
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 const http = require('http');
-const { kakao_config } = require("./config");
-const { config } = require(__dirname + "/config.js");
+// const { config } = require(__dirname + "/config.js");
 const PORT = process.env.PORT || 3030;
 
 
@@ -25,7 +24,7 @@ app.listen(PORT, () => {
 //————————————————————————checkLastGame————————————————————————//
 async function checkLastGame() {
     //get api from riot match history with count of 1 
-    let url = 'https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/Hu46PTPaSMgs3zU3HU4RyfVdQHkBKWHssLEaj8vWfd_19qzXg3xlKu_AsUkBQp1_EG-lSge7NXRx4A/ids?start=0&count=1&api_key=' + config.RIOT_API_KEY;
+    let url = 'https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/Hu46PTPaSMgs3zU3HU4RyfVdQHkBKWHssLEaj8vWfd_19qzXg3xlKu_AsUkBQp1_EG-lSge7NXRx4A/ids?start=0&count=1&api_key=' + process.env.RIOT_API_KEY;
     let response = await fetch(url);
     let data = await response.json();
     //check this with global variable(LastGame) and if they match return false
@@ -42,7 +41,7 @@ async function checkLastGame() {
 //————————————————————————checkMatch————————————————————————//
 async function checkMatch() {
 
-    let url = 'https://americas.api.riotgames.com/lol/match/v5/matches/' + LastGame + '?api_key=' + config.RIOT_API_KEY;
+    let url = 'https://americas.api.riotgames.com/lol/match/v5/matches/' + LastGame + '?api_key=' + process.env..RIOT_API_KEY;
     let response = await fetch(url);
     let data = await response.json();
     //find participant
@@ -92,7 +91,7 @@ var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'whendoeskevinpoop@gmail.com',
-        pass: config.GMAIL_PASS
+        pass: process.env..GMAIL_PASS
     }
 });
 
