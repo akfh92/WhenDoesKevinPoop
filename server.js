@@ -8,6 +8,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const http = require('http');
 const { kakao_config } = require("./config");
 const { config } = require(__dirname + "/config.js");
+const PORT = process.env.PORT || 3030;
+
 
 ////GLOBAL VARIABLES////
 let LastGame = 'NA1_4648782588';
@@ -16,9 +18,9 @@ app.get("/", function (req, res) {
     res.sendFile(__dirname + "/index.html");
 
 });
-app.listen(3000, function () {
-    console.log("linstening on 5000");
-});
+app.listen(PORT, () => {
+    console.log(`server started on port ${PORT}`);
+  });
 
 //————————————————————————checkLastGame————————————————————————//
 async function checkLastGame() {
