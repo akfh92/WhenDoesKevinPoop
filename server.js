@@ -41,7 +41,7 @@ async function checkLastGame() {
 //————————————————————————checkMatch————————————————————————//
 async function checkMatch() {
 
-    let url = 'https://americas.api.riotgames.com/lol/match/v5/matches/' + LastGame + '?api_key=' + process.env..RIOT_API_KEY;
+    let url = 'https://americas.api.riotgames.com/lol/match/v5/matches/' + LastGame + '?api_key=' + process.env.RIOT_API_KEY;
     let response = await fetch(url);
     let data = await response.json();
     //find participant
