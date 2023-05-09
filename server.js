@@ -15,10 +15,7 @@ let LastGame = 'NA1_4648782588';
 
 
 //————————————————————————loadMainPage————————————————————————//
-app.get("/", function (req, res) {
-    app.use(express.static("public"));
-
-});
+app.use("/",express.static(__dirname + '/public'));
 //————————————————————————loadMainPage————————————————————————//
 app.listen(PORT, () => {
     console.log(`server started on port ${PORT}`);
