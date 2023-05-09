@@ -16,7 +16,7 @@ let LastGame = 'NA1_4648782588';
 
 //————————————————————————loadMainPage————————————————————————//
 app.get("/", function (req, res) {
-    res.sendFile(__dirname + "/index.html");
+    app.use(express.static("public"));
 
 });
 //————————————————————————loadMainPage————————————————————————//
