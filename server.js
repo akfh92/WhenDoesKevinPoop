@@ -12,11 +12,14 @@ const PORT = process.env.PORT || 3030;
 
 ////GLOBAL VARIABLES////
 let LastGame = 'NA1_4648782588';
-//Main page
+
+
+//————————————————————————loadMainPage————————————————————————//
 app.get("/", function (req, res) {
     res.sendFile(__dirname + "/index.html");
 
 });
+//————————————————————————loadMainPage————————————————————————//
 app.listen(PORT, () => {
     console.log(`server started on port ${PORT}`);
   });
