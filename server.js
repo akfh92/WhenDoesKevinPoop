@@ -48,7 +48,7 @@ async function checkMatch() {
     jsonData1 = data.metadata.participants;
     let participantNum;
     for (let i = 0; i < jsonData1.length; i++) {
-        if (jsonData1[i] == config.puuid) {
+        if (jsonData1[i] == process.env.puuid) {
             participantNum = i;
         }
     }
@@ -145,4 +145,4 @@ async function main() {
     }, 120000) // 120000 miliseconds = 20 minutes
 }
 //————————————MAIN FUNCTION————————————//
-main()
+main();
