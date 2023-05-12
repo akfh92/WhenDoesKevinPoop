@@ -136,6 +136,9 @@ async function main() {
         if(lastGameCheck){
         sendEmail(inGameData);
         }
+        app.get("/check",function(req,res){
+            res.send(inGameData);
+        });
 
 
 
