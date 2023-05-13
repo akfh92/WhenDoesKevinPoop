@@ -12,9 +12,11 @@ const PORT = process.env.PORT || 3030;
 
 ////GLOBAL VARIABLES////
 let LastGame = "NA1_4648782588";
-
+app.use('/', router);
 //————————————————————————loadMainPage————————————————————————//
-app.use("/", express.static(__dirname + "/public"));
+// app.use("/", express.static(__dirname + "/public"));
+router.get('/',express.static(__dirname + "/public"));
+
 //————————————————————————loadMainPage————————————————————————//
 app.listen(PORT, () => {
   console.log(`server started on port ${PORT}`);
@@ -131,9 +133,10 @@ async function main() {
     if (checkPoopedOutput) {
       sendEmail(inGameData2);
     }
-    app.get("/check", function (req, res) {
+    router.get('/check',function(req,res){
       res.send(inGameData2);
     });
+     
   }, 120000); // 120000 miliseconds = 20 minutes
 }
 //————————————MAIN FUNCTION————————————//
