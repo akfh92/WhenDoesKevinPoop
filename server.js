@@ -8,7 +8,7 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 const http = require("http");
 // const { config } = require(__dirname + "/config.js");
-const PORT = config.PORT || 3030;
+const PORT = process.env.PORT || 3030;
 
 ////GLOBAL VARIABLES////
 let LastGame = "NA1_4648782588";
