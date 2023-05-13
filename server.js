@@ -5,7 +5,6 @@ const nodemailer = require("nodemailer");
 const app = express();
 //const https = require("")
 const bodyParser = require("body-parser");
-const router = express.Router();
 app.use(bodyParser.urlencoded({ extended: true }));
 const http = require("http");
 // const { config } = require(__dirname + "/config.js");
@@ -13,10 +12,10 @@ const PORT = process.env.PORT || 3030;
 
 ////GLOBAL VARIABLES////
 let LastGame = "NA1_4648782588";
-app.use('/', router);
+
 //————————————————————————loadMainPage————————————————————————//
-// app.use("/", express.static(__dirname + "/public"));
-router.get('/',express.static(__dirname + "/public"));
+app.use("/", express.static(__dirname + "/public"));
+
 
 //————————————————————————loadMainPage————————————————————————//
 app.listen(PORT, () => {
@@ -134,8 +133,8 @@ async function main() {
     if (checkPoopedOutput) {
       sendEmail(inGameData2);
     }
-    router.get('/check',function(req,res){
-      res.send(inGameData2);
+    app.get('/check',function(req,res){
+      res.send("sahdiahdiuwqhd");
     });
      
   }, 120000); // 120000 miliseconds = 20 minutes
