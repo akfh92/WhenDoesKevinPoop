@@ -6,6 +6,7 @@ const app = express();
 //const https = require("")
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
+app.set('view engine','ejs');
 const https = require("https");
 const { config } = require(__dirname + "/config.js");
 // const PORT = config.PORT || 3030;
@@ -17,7 +18,11 @@ let LastGame = "NA1_4648782588";
 
 
 //————————————————————————loadMainPage————————————————————————//
-app.use("/", express.static(__dirname + "/public"));
+app.use(express.static(__dirname+"public"));
+app.use(express.static(__dirname+"styles"));
+app.get('/',function(req,res){
+  res.render("mainPage")
+});
 app.listen(PORT, () => {
   console.log(`server started on port ${PORT}`);
 });
@@ -140,8 +145,10 @@ async function main() {
      
   }, 1200); // 120000 miliseconds = 20 minutes
 }
-//————————————MAIN FUNCTION————————————//
 main(); // call main function
+//————————————MAIN FUNCTION————————————//
+
+
 
 
 
