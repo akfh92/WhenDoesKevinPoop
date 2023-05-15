@@ -6,28 +6,30 @@ const app = express();
 //const https = require("")
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
-const http = require("http");
-// const { config } = require(__dirname + "/config.js");
-const PORT = process.env.PORT || 3030;
+const https = require("https");
+const { config } = require(__dirname + "/config.js");
+// const PORT = config.PORT || 3030;
+const PORT = 3030;
 
-////GLOBAL VARIABLES////
+//————————————————————————Global Variables————————————————————————//
 let LastGame = "NA1_4648782588";
+//————————————————————————Global Variables————————————————————————//
+
 
 //————————————————————————loadMainPage————————————————————————//
 app.use("/", express.static(__dirname + "/public"));
-
-
-//————————————————————————loadMainPage————————————————————————//
 app.listen(PORT, () => {
   console.log(`server started on port ${PORT}`);
 });
+//————————————————————————loadMainPage————————————————————————//
+
 
 //————————————————————————checkLastGame————————————————————————//
 async function checkLastGame() {
   //get api from riot match history with count of 1
   let url =
     "https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/Hu46PTPaSMgs3zU3HU4RyfVdQHkBKWHssLEaj8vWfd_19qzXg3xlKu_AsUkBQp1_EG-lSge7NXRx4A/ids?start=0&count=1&api_key=" +
-    process.env.RIOT_API_KEY;
+    config.RIOT_API_KEY;
   let response = await fetch(url);
   let data = await response.json();
   //check this with global variable(LastGame) and if they match return false
@@ -40,24 +42,24 @@ async function checkLastGame() {
 }
 //————————————————————————checkLastGame————————————————————————//
 
+
 //————————————————————————checkMatch————————————————————————//
 async function checkMatch() {
   let url =
     "https://americas.api.riotgames.com/lol/match/v5/matches/" +
     LastGame +
     "?api_key=" +
-    process.env.RIOT_API_KEY;
+    config.RIOT_API_KEY;
   let response = await fetch(url);
   let data = await response.json();
   //find participant
   jsonData1 = data.metadata.participants;
   let participantNum;
   for (let i = 0; i < jsonData1.length; i++) {
-    if (jsonData1[i] == process.env.puuid) {
+    if (jsonData1[i] == config.puuid) {
       participantNum = i;
     }
   }
-  //console.log(data.info.participants[participantNum]);
   let retObject = {
     kda: data.info.participants[participantNum].challenges.kda,
     kill: data.info.participants[participantNum].kills,
@@ -70,11 +72,10 @@ async function checkMatch() {
 }
 //————————————————————————checkMatch-————————————————————————//
 
+
 //————————————————————————checkPooped————————————————————————//
 function checkPooped(inGameData) {
   kill_death_diff = inGameData.death - inGameData.kill;
-  console.log(inGameData.death);
-  console.log(inGameData.kill);
   if (kill_death_diff >= 5) {
     return true;
   }
@@ -82,12 +83,13 @@ function checkPooped(inGameData) {
 }
 //————————————————————————checkPooped————————————————————————//
 
+
 //————————————————————————sendEmail————————————————————————//
 var transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: "whendoeskevinpoop@gmail.com",
-    pass: process.env.GMAIL_PASS,
+    pass: config.GMAIL_PASS,
   },
 });
 
@@ -110,34 +112,36 @@ function sendEmail(inGameData) {
 
 //————————————————————————sendEmail————————————————————————//
 
+
 //————————————————————————MAIN FUNCTION————————————————————————//
 async function main() {
   setInterval(async function () {
     let lastGameCheck = false;
-    //call a function that returns true if kevin played another game                           -> function name checkLastGame()
+    //call a function that returns true if kevin played another game, returns false if kevin didn't play another game.                ----> function name checkLastGame()
     lastGameCheck = await checkLastGame();
-    console.log(lastGameCheck);
+    console.log( "Kevin played another game: " + lastGameCheck);
 
-    // if checkLastGame returns true, call check match which returns in-game data;             -> function name checkMatch()
+    // if checkLastGame returns true, call check match which returns in-game data;                                                    -----> function name checkMatch()
     if (lastGameCheck) {
       let inGameData = await checkMatch();
       inGameData2=inGameData;
     }
 
-    // if checkLastGame returns true, check if kevin pooped in the game;                       -> function name checkMatch()
+    // if checkLastGame returns true, check if kevin pooped in the game;                                                              -----> function name checkPooped()
     if (lastGameCheck) {
       checkPoopedOutput=checkPooped(inGameData2);
     }
 
-    //if checkPooped return true, send kakao notification;                                     ->  function name sendEmail()
+    //if checkPooped return true, send email notification;                                                                             ----->  function name sendEmail()
     if (checkPoopedOutput) {
       sendEmail(inGameData2);
     }
-    app.get('/check',function(req,res){
-      res.send("sahdiahdiuwqhd");
-    });
+
      
-  }, 120000); // 120000 miliseconds = 20 minutes
+  }, 1200); // 120000 miliseconds = 20 minutes
 }
 //————————————MAIN FUNCTION————————————//
-main();
+main(); // call main function
+
+
+
