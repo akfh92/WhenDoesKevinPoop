@@ -1,308 +1,370 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>When Does Kevin Poop?</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/0.6.5/tailwind.min.css'>
-<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
-<link rel="stylesheet" type="text/css"   href="/css/style.css">
-<link rel="icon" type="image/x-icon" href="android-chrome-192x192.png">
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="icon" type="image/x-icon" href="android-chrome-192x192.png">
 
 </head>
+
 <body>
-<!-- partial:index.partial.html -->
-<section class="bg-black font-sans">
-  <div class="container mx-auto flex items-center py-3">
-    <div class="sm:w-1/3 md:auto lg:auto font-hairline">
-      <p class="text-center text-lg logo"><a href="#">POOP<span class="blue">GG</span></a></p>
-    </div>
-    <div class="sm:w-4/5 md:w-2/6 lg:w-3/6 flex">
-      <a href="#">
-        <div class="rounded-l bg-blue-dark text-white px-6 py-3 hover:bg-blue"><i class="fas fa-search"></i></div>
-      </a>
-      <input v-model="info" placeholder="LMKWHENFINISHED" type="text" class="rounded-r bg-grey-darkest text-white px-6 py-3 ">
-
-    </div>
-    <div class="flex items-center justify-around lg:w-2/6 sm:w-2/5">
-      <a href="#">
-        <div>
-          <p><i class="fas fa-cloud"></i> NA </p>
-        </div>
-      </a>
-      <a href="#">
-        <div>
-          <i class="fas fa-globe-americas"></i> English
-        </div>
-      </a>
-      <a href="#">
-        <div class="flex items-center">
-          <img class="h-8 w-8 rounded" src="/KVEIN_AHRI_2.jpg" alt="">
-          <div class="px-2">LMKWHENFINISHED</div>
-        </div>
-      </a>
-    </div>
-</section>
-
-<main class="container mx-auto sm:w-full">
-  <div class="flex bg-black mt-4">
-    <a class="sm:w-32 text-center" href="#">
-      <div class="bg-blue lg:py-5 sm:py-8 hover:bg-blue-dark">
-        <p><i class="fas fa-server"></i> Overview
-
-        </p>
+  <!-- partial:index.partial.html -->
+  <section class="bg-black font-sans">
+    <div class="container mx-auto flex items-center py-3">
+      <div class="sm:w-1/3 md:auto lg:auto font-hairline">
+        <p class="text-center text-lg logo"><a href="#">POOP<span class="blue">GG</span></a></p>
       </div>
-    </a>
-    <a href="#">
-      <div class="p-5 hover:bg-grey-darkest">
+      <div class="sm:w-4/5 md:w-2/6 lg:w-3/6 flex">
+        <a href="#">
+          <div class="rounded-l bg-blue-dark text-white px-6 py-3 hover:bg-blue"><i class="fas fa-search"></i></div>
+        </a>
+        <input v-model="info" placeholder="LMKWHENFINISHED" type="text"
+          class="rounded-r bg-grey-darkest text-white px-6 py-3 ">
 
-        <p><i class="far fa-keyboard"></i> Matches
-
-        </p>
       </div>
-    </a>
-    <a href="#">
-      <div class="p-5 hover:bg-grey-darkest">
-
-        <p><i class="fas fa-chart-bar"></i> League
-        </p>
-      </div>
-    </a>
-    <div class="flex items-center justify-end  w-3/5">
-      <p>Do you like this summoner?</p>
-      <a href="#">
-        <div class="px-3 py-1 ml-4 bg-facebook rounded"><i class="fab fa-facebook"></i> <span class="font-bold">Like</span></div>
-      </a>
-    </div>
-  </div>
-  <div class="darken">
-    <div class="flex mx-auto champion p-2 border-b border-solid border-grey-light">
-      <div class="background"></div>
-      <div class="m-3"><img class="w-40 border-4 border-solid shadow-md " src="KEV_IMG2.jpg" alt=""></div>
-      <div class="flex flex-col w-2/5 my-4">
-
-        <div class="flex items-center">
-
-          <p class="text-4xl font-hairline tracking-wide text-shadow">LMKWHENFINISHED</p>
-          <div class="px-2 ml-2 bg-green rounded-sm"><i class="fas fa-rss"></i> <span class="font-bold">Online</span></div>
-        </div>
-        <!-- end of darvec -->
-        <div class="flex my-2 text-shadow">
-          <div><i class="fas ml-1 fa-globe-americas"></i> <span class="mr-3">North America</span></div>
-          <div><i class="fas ml-1 fa-certificate"></i> Level <%=data.level%></div>
-        </div><br><br>
-        <div class="mt-4"><i class="fas fa-check-circle text-green"></i>
-
-          <span class="font-bold text-black">Verified User</span> </div>
-        <div><i class="far fa-clock text-black"></i>
-
-          <span class="text-black">Updated: <%= data.updatedTime %></span> </div>
-      </div>
-      <div class="flex justify-end my-5 flex-grow">
-        <div class="flex flex-col">
+      <div class="flex items-center justify-around lg:w-2/6 sm:w-2/5">
+        <a href="#">
+          <div>
+            <p><i class="fas fa-cloud"></i> NA </p>
+          </div>
+        </a>
+        <a href="#">
+          <div>
+            <i class="fas fa-globe-americas"></i> English
+          </div>
+        </a>
+        <a href="#">
           <div class="flex items-center">
-            <div class="tracking-wide px-3 py-2 ml-3 bg-purple-darkest "><i class="fas fa-gamepad"></i></div>
-            <div class="tracking-wide px-4 py-2 mr-2 bg-purple-darker "><span class="font-bold">Game Info</span></div>
-            <div class="tracking-wide px-3 py-2 ml-4 bg-green-darkest "><i class="fas fa-sync"></i></div>
-            <div class="tracking-wide px-5 py-2 mr-4 bg-green-darker "><span class="font-bold">Update</span>
-            </div>
+            <img class="h-8 w-8 rounded" src="/KVEIN_AHRI_2.jpg" alt="">
+            <div class="px-2">LMKWHENFINISHED</div>
           </div>
-          <div class="flex justify-end flex-grow text-grey-darkest">
-            <div class="uppercase flex items-center text-center mt-12">
-              <div class="mx-2">
-                <p class="font-hairline text-xl">0</p>
-                <p class="text-grey-darker font-bold">Posts</p>
-              </div>
-              <div class="mx-2">
-                <p class="font-hairline text-xl">0</p>
-                <p class="text-grey-darker font-bold">Following</p>
-              </div>
-              <div class="mx-2">
-                <p class="font-hairline text-xl">0</p>
-                <p class="text-grey-darker font-bold">Followers</div>
-              <a class="text-black hover:text-grey-darkest" href="#">
-                <div class="mx-2"><i class="fas fa-cog text-xl"></i></div>
-              </a>
-              <a href="#">
-                <div class="border border-solid border-grey-light uppercase tracking-wide px-2 py-2 ml-2 bg-grey-lighter rounded-sm text-blue mx-2"><i class="fas fa-user-plus "></i> Follow</div>
-              </a>
-            </div>
-          </div>
+        </a>
+      </div>
+  </section>
+
+  <main class="container mx-auto sm:w-full">
+    <div class="flex bg-black mt-4">
+      <a class="sm:w-32 text-center" href="#">
+        <div class="bg-blue lg:py-5 sm:py-8 hover:bg-blue-dark">
+          <p><i class="fas fa-server"></i> Overview
+
+          </p>
         </div>
+      </a>
+      <a href="#">
+        <div class="p-5 hover:bg-grey-darkest">
+
+          <p><i class="far fa-keyboard"></i> Matches
+
+          </p>
+        </div>
+      </a>
+      <a href="#">
+        <div class="p-5 hover:bg-grey-darkest">
+
+          <p><i class="fas fa-chart-bar"></i> League
+          </p>
+        </div>
+      </a>
+      <div class="flex items-center justify-end  w-3/5">
+        <p>Do you like this summoner?</p>
+        <a href="#">
+          <div class="px-3 py-1 ml-4 bg-facebook rounded"><i class="fab fa-facebook"></i> <span
+              class="font-bold">Like</span></div>
+        </a>
       </div>
     </div>
-  </div>
-</main>
+    <div class="darken">
+      <div class="flex mx-auto champion p-2 border-b border-solid border-grey-light">
+        <div class="background"></div>
+        <div class="m-3"><img class="w-40 border-4 border-solid shadow-md " src="KEV_IMG2.jpg" alt=""></div>
+        <div class="flex flex-col w-2/5 my-4">
 
-<section class="container mx-auto flex container bg-white p-4">
-  <div class="bg-white rank">
-    <div class="shadow flex-col text-black border border-solid border-grey-lightest">
-      <div class="flex items-center text-black py-3 border-b border-solid border-grey-lighter">
-
-        <div class="mx-4 text-rank"><i class="fas fa-trophy fa-fw"></i><span class="text-grey-darker"> Ranked Summary</span></div>
-      </div>
-      <div class="flex items-center ">
-        <div class="flex flex-col w-full">
-          <div class="flex items-center border-b border-solid border-grey-light mx-4">
-            <img class="mx-2 w-24" src="http://opgg-static.akamaized.net/images/medals/diamond_3.png" alt="">
-
-            <div>
-              <p class="font-bold">Ranked Solo/Duo</p>
-              <p class="text-blue">Diamond 2 <span class="text-grey-dark">in Shyvana's Tricksters</span></p>
-              <p class="text-grey-dark"><span class="font-bold text-grey-darker ">0 LP</span> with <span class="font-bold text-grey-darker ">514W / 522L </span></p>
-            </div>
-          </div>
-          <div class="flex items-center mx-4">
-            <img class="mx-2 w-24" src="http://opgg-static.akamaized.net/images/medals/gold_1.png" alt="">
-
-            <div>
-              <p class="font-bold">Ranked Solo/Duo</p>
-              <p class="text-blue">Gold 1 <span class="text-grey-dark">in Swain's Giants</span></p>
-              <p class="text-grey-dark"><span class="font-bold text-grey-darker ">18 LP</span> with <span class="font-bold text-grey-darker ">8W / 8L </span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container text-black bg-white">
-    <div class="w-100 p-2  mx-5 shadow text-black border border-solid border-grey-lightest">
-      <div class="m-2 w-100 flex-grow">
-        <div class="flex">
-          <div class="w-1/6">
-            <p class="text-grey-dark text-center">20G 9W 11L <b>(45%)</b></p>
-            <canvas id="myChart"></canvas>
-          </div>
-          <div class="m-5 self-center">
-            <p class="font-bold">6.1 / <span class="text-red">5.3</span> / 6.4</p>
-            <p class="text-lg">2.34:1 <span class="text-red">(53%)</span></p>
-          </div>
           <div class="flex items-center">
-            <div class="flex w-full">
-              <!-- Champion Stats -->
-              <div class="champ-stats flex flex-col">
-                <div class="flex items-center mx-4">
-                  <img class="mx-2 w-10 rounded-full" src="https://cdn.communitydragon.org/8.21.1/champion/Nocturne/square" alt="">
 
-                  <div>
-                    <p class="font-bold">Nocturne</p>
-                    <p> <span class="font-bold text-red">60%</span><span class="text-grey-darker"> (6W 4L)</span> <span class="font-bold"> 2.51 KDA</span></p>
-                  </div>
-                </div>
-
-                <div class="flex items-center mx-4">
-                  <img class="mx-2 w-10 rounded-full" src="https://cdn.communitydragon.org/8.21.1/champion/XinZhao/square" alt="">
-
-                  <div>
-                    <p class="font-bold">Xin Zhao</p>
-                    <p> <span class="">0%</span><span class="text-grey-darker"> (0W 3L)</span> <span class="font-bold"> 1.86 KDA</span></p>
-                  </div>
-                </div>
-                <div class="flex items-center mx-4">
-                  <img class="mx-2 w-10 rounded-full" src="https://cdn.communitydragon.org/8.21.1/champion/Rammus/square" alt="">
-
-                  <div>
-                    <p class="font-bold">Rammus</p>
-                    <p> <span class="font-bold">50%</span><span class="text-grey-darker"> (1W 1L)</span> <span class="font-bold text-green"> 2.51 KDA</span></p>
-                  </div>
-                </div>
-              </div>
-
+            <p class="text-4xl font-hairline tracking-wide text-shadow">LMKWHENFINISHED</p>
+            <div class="px-2 ml-2 bg-green rounded-sm"><i class="fas fa-rss"></i> <span class="font-bold">Online</span>
             </div>
           </div>
-          <div style="flex-grow">
-            <div>
-              <p class="text-center text-grey-dark">Preferred Position (Rank)</p>
+          <!-- end of darvec -->
+          <div class="flex my-2 text-shadow">
+            <div><i class="fas ml-1 fa-globe-americas"></i> <span class="mr-3">North America</span></div>
+            <div><i class="fas ml-1 fa-certificate"></i> Level <%=data.level%>
             </div>
-            <div class="flex items-center mx-4">
-              <img class="mx-2 w-10 rounded-full" src="https://vignette.wikia.nocookie.net/leagueoflegends/images/1/1b/Jungle_icon.png" alt="">
+          </div><br><br>
+          <div class="mt-4"><i class="fas fa-check-circle text-green"></i>
+
+            <span class="font-bold text-black">Verified User</span>
+          </div>
+          <div><i class="far fa-clock text-black"></i>
+
+            <span class="text-black">Updated: <%= data.updatedTime %></span>
+          </div>
+        </div>
+        <div class="flex justify-end my-5 flex-grow">
+          <div class="flex flex-col">
+            <div class="flex items-center">
+              <div class="tracking-wide px-3 py-2 ml-3 bg-purple-darkest "><i class="fas fa-gamepad"></i></div>
+              <div class="tracking-wide px-4 py-2 mr-2 bg-purple-darker "><span class="font-bold">Game Info</span></div>
+              <div class="tracking-wide px-3 py-2 ml-4 bg-green-darkest "><i class="fas fa-sync"></i></div>
+              <div class="tracking-wide px-5 py-2 mr-4 bg-green-darker "><span class="font-bold">Update</span>
+              </div>
+            </div>
+            <div class="flex justify-end flex-grow text-grey-darkest">
+              <div class="uppercase flex items-center text-center mt-12">
+                <div class="mx-2">
+                  <p class="font-hairline text-xl">0</p>
+                  <p class="text-grey-darker font-bold">Posts</p>
+                </div>
+                <div class="mx-2">
+                  <p class="font-hairline text-xl">0</p>
+                  <p class="text-grey-darker font-bold">Following</p>
+                </div>
+                <div class="mx-2">
+                  <p class="font-hairline text-xl">0</p>
+                  <p class="text-grey-darker font-bold">Followers
+                </div>
+                <a class="text-black hover:text-grey-darkest" href="#">
+                  <div class="mx-2"><i class="fas fa-cog text-xl"></i></div>
+                </a>
+                <a href="#">
+                  <div
+                    class="border border-solid border-grey-light uppercase tracking-wide px-2 py-2 ml-2 bg-grey-lighter rounded-sm text-blue mx-2">
+                    <i class="fas fa-user-plus "></i> Follow</div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section class="container mx-auto flex container bg-white p-4">
+    <div class="bg-white rank">
+      <div class="shadow flex-col text-black border border-solid border-grey-lightest">
+        <div class="flex items-center text-black py-3 border-b border-solid border-grey-lighter">
+
+          <div class="mx-4 text-rank"><i class="fas fa-trophy fa-fw"></i><span class="text-grey-darker"> Ranked
+              Summary</span></div>
+        </div>
+        <div class="flex items-center ">
+          <div class="flex flex-col w-full">
+            <div class="flex items-center border-b border-solid border-grey-light mx-4">
+              <img class="mx-2 w-24" src="http://opgg-static.akamaized.net/images/medals/diamond_3.png" alt="">
 
               <div>
-                <p class="font-bold">Jungle</p>
-                <p> <span class="font-bold text-blue">92%</span> <span class="text-grey-darker"> | Win Ratio</span> <span class="font-bold">55%</span></p>
+                <p class="font-bold">Ranked Solo/Duo</p>
+                <p class="text-blue">Diamond 2 <span class="text-grey-dark">in Shyvana's Tricksters</span></p>
+                <p class="text-grey-dark"><span class="font-bold text-grey-darker ">0 LP</span> with <span
+                    class="font-bold text-grey-darker ">514W / 522L </span></p>
               </div>
             </div>
             <div class="flex items-center mx-4">
-              <img class="mx-2 w-10 rounded-full" src="https://vignette.wikia.nocookie.net/leagueoflegends/images/7/70/Mid_icon.png" alt="">
+              <img class="mx-2 w-24" src="http://opgg-static.akamaized.net/images/medals/gold_1.png" alt="">
 
               <div>
-                <p class="font-bold">Middle</p>
-                <p> <span class="font-bold text-blue">8%</span> <span class="text-grey-darker"> | Win Ratio</span> <span class="font-bold">0%</span></p>
+                <p class="font-bold">Ranked Solo/Duo</p>
+                <p class="text-blue">Gold 1 <span class="text-grey-dark">in Swain's Giants</span></p>
+                <p class="text-grey-dark"><span class="font-bold text-grey-darker ">18 LP</span> with <span
+                    class="font-bold text-grey-darker ">8W / 8L </span></p>
               </div>
             </div>
           </div>
         </div>
-
       </div>
-
     </div>
     <div class="container text-black bg-white">
-      <div class="my-4  mx-5 shadow text-black win">
-        <div class="">
-          <div class="flex items-center mx-4">
-            <div class="flex flex-col items-center">
-              <img class="mx-2 w-16 rounded-full" src="https://cdn.communitydragon.org/8.21.1/champion/Thresh/square" alt="">
-              <p class="font-bold">Thresh</p>
+      <div class="w-100 p-2  mx-5 shadow text-black border border-solid border-grey-lightest">
+        <div class="m-2 w-100 flex-grow">
+          <div class="flex">
+            <div class="w-1/6">
+              <p class="text-grey-dark text-center">20G 9W 11L <b>(45%)</b></p>
+              <canvas id="myChart"></canvas>
             </div>
-            <div class="flex flex-col">
-              <div><img class="w-10" src="https://raw.communitydragon.org/latest/game/data/spells/icons2d/summoner_flash.png" alt=""></div>
-              <div><img class="w-10" src="https://raw.communitydragon.org/latest/game/data/spells/icons2d/summonerignite.png" alt=""></div>
+            <div class="m-5 self-center">
+              <p class="font-bold">6.1 / <span class="text-red">5.3</span> / 6.4</p>
+              <p class="text-lg">2.34:1 <span class="text-red">(53%)</span></p>
             </div>
-            <div>
-              <div class="stats mx-2">
-                <p class="my-1 text-base font-extrabold text-center">3/7/39</p>
-                <p><span class="p-1 bg-grey-light">4:57:0</span> KDA</p>
+            <div class="flex items-center">
+              <div class="flex w-full">
+                <!-- Champion Stats -->
+                <div class="champ-stats flex flex-col">
+                  <div class="flex items-center mx-4">
+                    <img class="mx-2 w-10 rounded-full"
+                      src="https://cdn.communitydragon.org/8.21.1/champion/Nocturne/square" alt="">
+
+                    <div>
+                      <p class="font-bold">Nocturne</p>
+                      <p> <span class="font-bold text-red">60%</span><span class="text-grey-darker"> (6W 4L)</span>
+                        <span class="font-bold"> 2.51 KDA</span></p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center mx-4">
+                    <img class="mx-2 w-10 rounded-full"
+                      src="https://cdn.communitydragon.org/8.21.1/champion/XinZhao/square" alt="">
+
+                    <div>
+                      <p class="font-bold">Xin Zhao</p>
+                      <p> <span class="">0%</span><span class="text-grey-darker"> (0W 3L)</span> <span
+                          class="font-bold"> 1.86 KDA</span></p>
+                    </div>
+                  </div>
+                  <div class="flex items-center mx-4">
+                    <img class="mx-2 w-10 rounded-full"
+                      src="https://cdn.communitydragon.org/8.21.1/champion/Rammus/square" alt="">
+
+                    <div>
+                      <p class="font-bold">Rammus</p>
+                      <p> <span class="font-bold">50%</span><span class="text-grey-darker"> (1W 1L)</span> <span
+                          class="font-bold text-green"> 2.51 KDA</span></p>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
-            <div>
-              <div class="stats mr-2">
-                <p class="my-1 text-base font-extrabold text-center">37 CS</p>
-                <p>15K GOLD</p>
+            <div style="flex-grow">
+              <div>
+                <p class="text-center text-grey-dark">Preferred Position (Rank)</p>
+              </div>
+              <div class="flex items-center mx-4">
+                <img class="mx-2 w-10 rounded-full"
+                  src="https://vignette.wikia.nocookie.net/leagueoflegends/images/1/1b/Jungle_icon.png" alt="">
+
+                <div>
+                  <p class="font-bold">Jungle</p>
+                  <p> <span class="font-bold text-blue">92%</span> <span class="text-grey-darker"> | Win Ratio</span>
+                    <span class="font-bold">55%</span></p>
+                </div>
+              </div>
+              <div class="flex items-center mx-4">
+                <img class="mx-2 w-10 rounded-full"
+                  src="https://vignette.wikia.nocookie.net/leagueoflegends/images/7/70/Mid_icon.png" alt="">
+
+                <div>
+                  <p class="font-bold">Middle</p>
+                  <p> <span class="font-bold text-blue">8%</span> <span class="text-grey-darker"> | Win Ratio</span>
+                    <span class="font-bold">0%</span></p>
+                </div>
               </div>
             </div>
-            <div>
-              <div class="items items-center flex flex-wrap">
-                <img src="http://raw.communitydragon.org/latest/game/data/items/icons2d/3401_martyrsshroud.png" alt="" class="w-10"> <img src="http://raw.communitydragon.org/latest/game/data/items/icons2d/2049_sightstone.png" alt="" class="w-10">
-                <img
-                  src="http://raw.communitydragon.org/latest/game/data/items/icons2d/3143_randuins_omen.png" alt="" class="w-10"><img src="http://raw.communitydragon.org/latest/game/data/items/icons2d/3190_crest_of_the_iron_solari.png" alt="" class="w-10"><img src="http://raw.communitydragon.org/latest/game/data/items/icons2d/3222_mikaels_crucible.png" alt=""
-                    class="w-10"><img src="http://raw.communitydragon.org/latest/game/data/items/icons2d/3008_boots_of_swiftness.png" alt="" class="w-10">
-              </div>
-            </div>
-            <img class="ml-1 w-8" src="http://raw.communitydragon.org/latest/game/data/items/icons2d/3351_greaterredtrinket.png" alt="">
-            <!-- My Team -->
-            <div class="matchup flex flex-grow justify-end">
-                         <div class="flex flex-col m-2">
-              <div class="flex players items-center">
-                <img src="https://cdn.communitydragon.org/latest/champion/Zed/square" alt="" class="w-5 h-full"> <span class="mx-2">Ban Azir</span>
-              </div>
-              <div class="flex players items-center"><img src="https://cdn.communitydragon.org/latest/champion/Tristana/square" alt="" class="w-5 h-full"> <span class="mx-2">Post Malone</span></div>
-              <div class="flex players items-center"><img src="https://cdn.communitydragon.org/latest/champion/Swain/square" alt="" class="w-5 h-full"> <span class="mx-2">C9 Jensen</span></div>
-              <div class="flex players items-center"><img src="https://cdn.communitydragon.org/latest/champion/Hecarim/square" alt="" class="w-5 h-full"> <span class="mx-2">C9 Licorice</span></div>
-              <div class="flex players items-center"><img src="https://cdn.communitydragon.org/latest/champion/Thresh/square" alt="" class="w-5 h-full"> <span class="mx-2"><span class="text-bold">Darvec</span></span></div>
-            </div>
-            <!-- Opponents -->
-            <div class="flex flex-col m-2">
-              <div class="flex players items-center">
-                <img src="https://cdn.communitydragon.org/latest/champion/Zed/square" alt="" class="w-5 h-full"> <span class="mx-2">Ban Azir</span>
-              </div>
-              <div class="flex players items-center"><img src="https://cdn.communitydragon.org/latest/champion/Tristana/square" alt="" class="w-5 h-full"> <span class="mx-2">Post Malone</span></div>
-              <div class="flex players items-center"><img src="https://cdn.communitydragon.org/latest/champion/Swain/square" alt="" class="w-5 h-full"> <span class="mx-2">C9 Jensen</span></div>
-              <div class="flex players items-center"><img src="https://cdn.communitydragon.org/latest/champion/Hecarim/square" alt="" class="w-5 h-full"> <span class="mx-2">C9 Licorice</span></div>
-              <div class="flex players items-center"><img src="https://cdn.communitydragon.org/latest/champion/Thresh/square" alt="" class="w-5 h-full"> <span class="mx-2"><span class="text-bold">Darvec</span></span></div>
-            </div>
-            </div>
- 
           </div>
-          <div class="stat-footer p-2 bg-grey-light flex items-center justify-between">
-            <div class="scorefooter">
-            <p><span class="text-green-dark font-bold">Victory</span> at <span class="font-bold">51m 21s</span> in <span class="font-bold">Normal</span></p>
-          </div>
-            <div class="scorefooter">
-            <p><span class="font-bold">2 Days Ago</span> in <span class="font-bold">Summoner's Rift</span></p>
-          </div>
-          </div>
-</section>
-<!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js'></script><script  src="index.js"></script>
+
+        </div>
+
+      </div>
+      <div class="container text-black bg-white">
+        <div class="my-4  mx-5 shadow text-black win">
+          <div class="">
+            <div class="flex items-center mx-4">
+              <div class="flex flex-col items-center">
+                <img class="mx-2 w-16 rounded-full" src="https://cdn.communitydragon.org/8.21.1/champion/Thresh/square"
+                  alt="">
+                <p class="font-bold">Thresh</p>
+              </div>
+              <div class="flex flex-col">
+                <div><img class="w-10"
+                    src="https://raw.communitydragon.org/latest/game/data/spells/icons2d/summoner_flash.png" alt="">
+                </div>
+                <div><img class="w-10"
+                    src="https://raw.communitydragon.org/latest/game/data/spells/icons2d/summonerignite.png" alt="">
+                </div>
+              </div>
+              <div>
+                <div class="stats mx-2">
+                  <p class="my-1 text-base font-extrabold text-center">3/7/39</p>
+                  <p><span class="p-1 bg-grey-light">4:57:0</span> KDA</p>
+                </div>
+              </div>
+              <div>
+                <div class="stats mr-2">
+                  <p class="my-1 text-base font-extrabold text-center">37 CS</p>
+                  <p>15K GOLD</p>
+                </div>
+              </div>
+              <div>
+                <div class="items items-center flex flex-wrap">
+                  <img src="http://raw.communitydragon.org/latest/game/data/items/icons2d/3401_martyrsshroud.png" alt=""
+                    class="w-10"> <img
+                    src="http://raw.communitydragon.org/latest/game/data/items/icons2d/2049_sightstone.png" alt=""
+                    class="w-10">
+                  <img src="http://raw.communitydragon.org/latest/game/data/items/icons2d/3143_randuins_omen.png" alt=""
+                    class="w-10"><img
+                    src="http://raw.communitydragon.org/latest/game/data/items/icons2d/3190_crest_of_the_iron_solari.png"
+                    alt="" class="w-10"><img
+                    src="http://raw.communitydragon.org/latest/game/data/items/icons2d/3222_mikaels_crucible.png" alt=""
+                    class="w-10"><img
+                    src="http://raw.communitydragon.org/latest/game/data/items/icons2d/3008_boots_of_swiftness.png"
+                    alt="" class="w-10">
+                </div>
+              </div>
+              <img class="ml-1 w-8"
+                src="http://raw.communitydragon.org/latest/game/data/items/icons2d/3351_greaterredtrinket.png" alt="">
+              <!-- My Team -->
+              <div class="matchup flex flex-grow justify-end">
+                <div class="flex flex-col m-2">
+                  <div class="flex players items-center">
+                    <img src="https://cdn.communitydragon.org/latest/champion/Zed/square" alt="" class="w-5 h-full">
+                    <span class="mx-2">Ban Azir</span>
+                  </div>
+                  <div class="flex players items-center"><img
+                      src="https://cdn.communitydragon.org/latest/champion/Tristana/square" alt="" class="w-5 h-full">
+                    <span class="mx-2">Post Malone</span></div>
+                  <div class="flex players items-center"><img
+                      src="https://cdn.communitydragon.org/latest/champion/Swain/square" alt="" class="w-5 h-full">
+                    <span class="mx-2">C9 Jensen</span></div>
+                  <div class="flex players items-center"><img
+                      src="https://cdn.communitydragon.org/latest/champion/Hecarim/square" alt="" class="w-5 h-full">
+                    <span class="mx-2">C9 Licorice</span></div>
+                  <div class="flex players items-center"><img
+                      src="https://cdn.communitydragon.org/latest/champion/Thresh/square" alt="" class="w-5 h-full">
+                    <span class="mx-2"><span class="text-bold">Darvec</span></span></div>
+                </div>
+                <!-- Opponents -->
+                <div class="flex flex-col m-2">
+                  <div class="flex players items-center">
+                    <img src="https://cdn.communitydragon.org/latest/champion/Zed/square" alt="" class="w-5 h-full">
+                    <span class="mx-2">Ban Azir</span>
+                  </div>
+                  <div class="flex players items-center"><img
+                      src="https://cdn.communitydragon.org/latest/champion/Tristana/square" alt="" class="w-5 h-full">
+                    <span class="mx-2">Post Malone</span></div>
+                  <div class="flex players items-center"><img
+                      src="https://cdn.communitydragon.org/latest/champion/Swain/square" alt="" class="w-5 h-full">
+                    <span class="mx-2">C9 Jensen</span></div>
+                  <div class="flex players items-center"><img
+                      src="https://cdn.communitydragon.org/latest/champion/Hecarim/square" alt="" class="w-5 h-full">
+                    <span class="mx-2">C9 Licorice</span></div>
+                  <div class="flex players items-center"><img
+                      src="https://cdn.communitydragon.org/latest/champion/Thresh/square" alt="" class="w-5 h-full">
+                    <span class="mx-2"><span class="text-bold">Darvec</span></span></div>
+                </div>
+              </div>
+
+            </div>
+            <div class="stat-footer p-2 bg-grey-light flex items-center justify-between">
+              <div class="scorefooter">
+                <p><span class="text-green-dark font-bold">Victory</span> at <span class="font-bold">51m 21s</span> in
+                  <span class="font-bold">Normal</span></p>
+              </div>
+              <div class="scorefooter">
+                <p><span class="font-bold">2 Days Ago</span> in <span class="font-bold">Summoner's Rift</span></p>
+              </div>
+              
+            </div>
+
+  </section>
+  
+  <!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js'></script>
+  <script src="index.js"></script>
 
 </body>
+
 </html>

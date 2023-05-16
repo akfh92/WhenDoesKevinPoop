@@ -19,8 +19,9 @@ let getTime;
 
 //————————————————————————loadMainPage————————————————————————//
 app.use(express.static("public"));
-let currentLevel = await getSummonerInfo();
-app.get("/", function (req, res) {
+
+app.get("/", async function (req, res) {
+  let currentLevel =  await getSummonerInfo();
   res.render("mainPage", { data: { updatedTime: getTime, level:currentLevel} });
 });
 app.listen(PORT, () => {
@@ -141,7 +142,7 @@ async function getSummonerInfo(){
 url = "https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/Hu46PTPaSMgs3zU3HU4RyfVdQHkBKWHssLEaj8vWfd_19qzXg3xlKu_AsUkBQp1_EG-lSge7NXRx4A?api_key="+config.RIOT_API_KEY;
 let response = await fetch(url);
 let data = await response.json();
-console.log(data.summonerLevel);
+return data.summonerLevel;
 }
 //————————————————————————getSummonerInfo————————————————————————//
 
@@ -170,7 +171,7 @@ async function main() {
     if (lastGameCheck&&checkPoopedOutput) {
       sendEmail(inGameData2);
     }
-  }, 1200); // 120000 miliseconds = 20 minutes
+  }, 1200000); // 120000 miliseconds = 20 minutes
 }
 main(); // call main function
 //————————————MAIN FUNCTION————————————//
