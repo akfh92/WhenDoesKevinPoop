@@ -155,25 +155,16 @@
         <div class="flex items-center ">
           <div class="flex flex-col w-full">
             <div class="flex items-center border-b border-solid border-grey-light mx-4">
-              <img class="mx-2 w-24" src="http://opgg-static.akamaized.net/images/medals/diamond_3.png" alt="">
+              <img class="mx-2 w-24" src= "<%=data.rankImgSrc%>" alt="">
 
               <div>
                 <p class="font-bold">Ranked Solo/Duo</p>
-                <p class="text-blue">Diamond 2 <span class="text-grey-dark">in Shyvana's Tricksters</span></p>
-                <p class="text-grey-dark"><span class="font-bold text-grey-darker ">0 LP</span> with <span
-                    class="font-bold text-grey-darker ">514W / 522L </span></p>
+                <p class="text-blue"><%=data.tier%> <%=data.rank%><span class="text-grey-dark"></span></p>
+                <p class="text-grey-dark"><span class="font-bold text-grey-darker "><%=data.lp%> LP</span> with <span
+                    class="font-bold text-grey-darker "><%=data.wins%>W / <%=data.losses%>L </span></p>
               </div>
             </div>
-            <div class="flex items-center mx-4">
-              <img class="mx-2 w-24" src="http://opgg-static.akamaized.net/images/medals/gold_1.png" alt="">
 
-              <div>
-                <p class="font-bold">Ranked Solo/Duo</p>
-                <p class="text-blue">Gold 1 <span class="text-grey-dark">in Swain's Giants</span></p>
-                <p class="text-grey-dark"><span class="font-bold text-grey-darker ">18 LP</span> with <span
-                    class="font-bold text-grey-darker ">8W / 8L </span></p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -183,7 +174,7 @@
         <div class="m-2 w-100 flex-grow">
           <div class="flex">
             <div class="w-1/6">
-              <p class="text-grey-dark text-center">20G 9W 11L <b>(45%)</b></p>
+              <p class="text-grey-dark text-center">20G 0W 20L <b>(45%)</b></p>
               <canvas id="myChart"></canvas>
             </div>
             <div class="m-5 self-center">
