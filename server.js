@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 const https = require("https");
 //const { config } = require(__dirname + "/config.js");
- const PORT = config.PORT || 3030;
+ const PORT = process.env.PORT || 3030;
 //const PORT = 3030;
 
 //————————————————————————Global Variables————————————————————————//
