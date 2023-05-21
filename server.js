@@ -8,9 +8,9 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 const https = require("https");
-const { config } = require(__dirname + "/config.js");
-//const PORT = process.env.PORT || 3030;
-const PORT = 3030;
+//const { config } = require(__dirname + "/config.js");
+const PORT = process.env.PORT || 3030;
+//const PORT = 3030;
 
 //————————————————————————Global Variables————————————————————————//
 let LastGame = "NA1_4648782588";
@@ -52,7 +52,7 @@ async function checkLastGame() {
   //get api from riot match history with count of 1
   let url =
     "https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/Hu46PTPaSMgs3zU3HU4RyfVdQHkBKWHssLEaj8vWfd_19qzXg3xlKu_AsUkBQp1_EG-lSge7NXRx4A/ids?start=0&count=1&api_key=" +
-    config.RIOT_API_KEY;
+    process.env.RIOT_API_KEY;
   let response = await fetch(url);
   let data = await response.json();
   //check this with global variable(LastGame) and if they match return false
@@ -71,14 +71,14 @@ async function checkMatch() {
     "https://americas.api.riotgames.com/lol/match/v5/matches/" +
     LastGame +
     "?api_key=" +
-    config.RIOT_API_KEY;
+    process.env.RIOT_API_KEY;
   let response = await fetch(url);
   let data = await response.json();
   //find participant
   jsonData1 = data.metadata.participants;
   let participantNum;
   for (let i = 0; i < jsonData1.length; i++) {
-    if (jsonData1[i] == config.puuid) {
+    if (jsonData1[i] == process.env.puuid) {
       participantNum = i;
     }
   }
@@ -109,7 +109,7 @@ var transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: "whendoeskevinpoop@gmail.com",
-    pass: config.GMAIL_PASS,
+    pass: process.env.GMAIL_PASS,
   },
 });
 
@@ -156,7 +156,7 @@ function getCurrentTime() {
 async function getCurrentRank() {
   url =
     "https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/MiKfb4NIL4Y0v9UWBVCWQFPIDvV8Xp1aBckFZiTLK5upeI8?api_key=" +
-    config.RIOT_API_KEY;
+    process.env.RIOT_API_KEY;
   let response = await fetch(url);
   let data = await response.json();
   return data;
@@ -168,7 +168,7 @@ async function getCurrentRank() {
 async function getSummonerInfo() {
   url =
     "https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/Hu46PTPaSMgs3zU3HU4RyfVdQHkBKWHssLEaj8vWfd_19qzXg3xlKu_AsUkBQp1_EG-lSge7NXRx4A?api_key=" +
-    config.RIOT_API_KEY;
+    process.env.RIOT_API_KEY;
   let response = await fetch(url);
   let data = await response.json();
   return data.summonerLevel;
