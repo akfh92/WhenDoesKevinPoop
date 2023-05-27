@@ -2,15 +2,16 @@
 const express = require("express");
 const fetch = require("node-fetch");
 const nodemailer = require("nodemailer");
+var ejs = require("ejs");
 const app = express();
 //const https = require("")
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 const https = require("https");
-//const { config } = require(__dirname + "/config.js");
+// const { config } = require(__dirname + "/config.js");
 const PORT = process.env.PORT || 3030;
-//const PORT = 3030;
+// const PORT = 3030;
 
 //————————————————————————Global Variables————————————————————————//
 let LastGame = "NA1_4648782588";
@@ -118,17 +119,37 @@ function sendEmail(inGameData) {
   var mailOptions = {
     from: "whendoeskevinpoop@gmail.com",
     to: "akfh92@live.com",
-    subject: "KEVIN HAS POOPED!",
-    text: stringMessage,
+    subject: "KEVIN HAS POOPED!"
   };
-  transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      console.log(error);
+  console.log(inGameData);
+  ejs.renderFile(__dirname +"/views/"+ "email.ejs", { kill:inGameData.kill,death:inGameData.death,kda:inGameData.kda,lane:inGameData.lane,win:inGameData.win}, function (err, data) {
+    if (err) {
+        console.log(err);
     } else {
-      console.log("Email sent: " + info.response);
+        var mainOptions = {
+          from: "whendoeskevinpoop@gmail.com",
+          to: "akfh92@live.com",
+          subject: "KEVIN HAS POOPED!",
+          html: data,
+          attachments: [{
+            filename: 'KEV_IMG2.jpg',
+            path: __dirname +'/public/KEV_IMG2.jpg', // path contains the filename, do not just give path of folder where images are reciding.
+            cid: 'img' // give any unique name to the image and make sure, you do not repeat the same string in given attachment array of object.
+           }]
+        };
+        transporter.sendMail(mainOptions, function (err, info) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log('Message sent: ' + info.response);
+            }
+        });
     }
-  });
+    
+    });
 }
+
+
 
 //————————————————————————sendEmail————————————————————————//ƒ
 
