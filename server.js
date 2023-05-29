@@ -219,7 +219,7 @@ function sendDiscordMessage(inGameData2){
   poopEmoji = "💩 💩 💩 💩";
   message_str = poopEmoji+poopEmoji+poopEmoji+poopEmoji+poopEmoji+"\n"+poopEmoji+" KEVIN has pooped once again\n"+poopEmoji+"KILLS:"+inGameData2.kill+"\n"+poopEmoji+"DEATHS:"+inGameData2.death + "\n"+poopEmoji+"ASSISTS: "+inGameData2.assist +"\n"+poopEmoji+"KDA: "+inGameData2.kda +"\n"+poopEmoji+"LANE: "+inGameData2.lane+"\n"+poopEmoji+message_str2+"\n"+poopEmoji+poopEmoji+poopEmoji+poopEmoji+poopEmoji;  
   channel.send(message_str);
-  // console.log(inGameData2.kda);
+
 
 }
 //————————————————————————sendDiscordMessage————————————————————————//
