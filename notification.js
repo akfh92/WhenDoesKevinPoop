@@ -16,14 +16,15 @@ const client = new Client({
     IntentsBitField.Flags.MessageContent,
   ],
 });
-client.login(process.env.discord_token);
+const { config } = require(__dirname + "/config.js");
+client.login(config.discord_token);
 
 //————————————————————————sendEmail————————————————————————//
 var transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
         user: "whendoeskevinpoop@gmail.com",
-        pass: process.env.GMAIL_PASS,
+        pass: config.GMAIL_PASS,
     },
 });
 
@@ -34,7 +35,6 @@ function sendEmail(inGameData) {
         to: "akfh92@live.com",
         subject: "KEVIN HAS POOPED!"
     };
-    console.log(inGameData);
     ejs.renderFile(__dirname + "/views/" + "email.ejs", { kill: inGameData.kill, death: inGameData.death, kda: inGameData.kda, lane: inGameData.lane, win: inGameData.win }, function (err, data) {
         if (err) {
             console.log(err);
@@ -69,8 +69,8 @@ function sendEmail(inGameData) {
 
 //————————————————————————sendDiscordMessage————————————————————————//
 function sendDiscordMessage(inGameData2) {
-    const guild = client.guilds.cache.get(process.env.discord_server_id);
-    const channel = guild.channels.cache.get(process.env.discord_channel_id);
+    const guild = client.guilds.cache.get(config.discord_server_id);
+    const channel = guild.channels.cache.get(config.discord_channel_id);
     if (inGameData2.win) {
         message_str2 = "Although KEVIN was shit in the game, his team won!"
     } else {
