@@ -37,10 +37,10 @@ app.use(express.static("public"));
 
 app.get("/", async function (req, res) {
   //get current level
-  let currentLevel = await getSummonerInfo();
+  let currentLevel = await myFunction1.getSummonerInfo();
   //get current rank and other level/tier data
-  let currentRankJson = await getCurrentRank();
-  let currentTime = getCurrentTime();
+  let currentRankJson = await myFunction1.getCurrentRank();
+  let currentTime = myFunction3.getCurrentTime();
   let i = ''
   switch (currentRankJson[0].rank) {
     case 'I': i = 1; break;
