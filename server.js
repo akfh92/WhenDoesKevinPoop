@@ -90,7 +90,7 @@ async function main() {
       mytFunction3.sendEmail(inGameData2);
       mytFunction3.sendDiscordMessage(inGameData2);
     }
-  }, 120000); // 120000 miliseconds = 20 minutes
+  }, 1200000); // 120000 miliseconds = 20 minutes
 }
 main(); // call main function
 //————————————MAIN FUNCTION————————————//
