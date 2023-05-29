@@ -9,9 +9,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 const https = require("https");
 // const { config } = require(__dirname + "/config.js");
-const myFunction1 = require(__dirname+"RIOT_API.js");
-const myFunction2 = require(__dirname+"etc.js");
-const myFunction3 = require(__dirname+"notification.js");
+const myFunction1 = require(__dirname+"/RIOT_API.js");
+const myFunction2 = require(__dirname+"/etc.js");
+const myFunction3 = require(__dirname+"/notification.js");
 const PORT = process.env.PORT || 3030;
 // const PORT = 3030;
 const { Client, IntentsBitField } = require('discord.js');
@@ -90,7 +90,7 @@ async function main() {
       mytFunction3.sendEmail(inGameData2);
       mytFunction3.sendDiscordMessage(inGameData2);
     }
-  }, 1200000); // 120000 miliseconds = 20 minutes
+  }, 1200000); // 1200000 miliseconds = 20 minutes
 }
 main(); // call main function
 //————————————MAIN FUNCTION————————————//
