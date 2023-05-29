@@ -8,12 +8,12 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 const https = require("https");
-const { config } = require(__dirname + "/config.js");
+// const { config } = require(__dirname + "/config.js");
 const myFunction1 = require(__dirname+"/RIOT_API.js");
 const myFunction2 = require(__dirname+"/etc.js");
 const myFunction3 = require(__dirname+"/notification.js");
-// const PORT = process.env.PORT || 3030;
-const PORT = 3030;
+const PORT = process.env.PORT || 3030;
+// const PORT = 3030;
 const { Client, IntentsBitField } = require('discord.js');
 const client = new Client({
   intents: [
@@ -23,7 +23,7 @@ const client = new Client({
     IntentsBitField.Flags.MessageContent,
   ],
 });
-client.login(config.discord_token);
+client.login(process.env.discord_token);
 
 
 
@@ -40,7 +40,7 @@ app.get("/", async function (req, res) {
   let currentLevel = await myFunction1.getSummonerInfo();
   //get current rank and other level/tier data
   let currentRankJson = await myFunction1.getCurrentRank();
-  console.log("Asdasdasdasdasdas"+currentRankJson);
+  console.log(currentRankJson);
   let currentTime = myFunction2.getCurrentTime();
   let i = ''
   switch (currentRankJson[0].rank) {

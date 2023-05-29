@@ -16,15 +16,15 @@ const client = new Client({
     IntentsBitField.Flags.MessageContent,
   ],
 });
-const { config } = require(__dirname + "/config.js");
-client.login(config.discord_token);
+// const { config } = require(__dirname + "/config.js");
+client.login(process.env.discord_token);
 
 //————————————————————————sendEmail————————————————————————//
 var transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
         user: "whendoeskevinpoop@gmail.com",
-        pass: config.GMAIL_PASS,
+        pass: process.env.GMAIL_PASS,
     },
 });
 
@@ -69,8 +69,8 @@ function sendEmail(inGameData) {
 
 //————————————————————————sendDiscordMessage————————————————————————//
 function sendDiscordMessage(inGameData2) {
-    const guild = client.guilds.cache.get(config.discord_server_id);
-    const channel = guild.channels.cache.get(config.discord_channel_id);
+    const guild = client.guilds.cache.get(process.env.discord_server_id);
+    const channel = guild.channels.cache.get(process.env.discord_channel_id);
     if (inGameData2.win) {
         message_str2 = "Although KEVIN was shit in the game, his team won!"
     } else {
