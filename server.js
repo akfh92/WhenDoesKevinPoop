@@ -255,5 +255,4 @@ async function main() {
   }, 120000); // 120000 miliseconds = 20 minutes
 }
 main(); // call main function
-//
 //————————————MAIN FUNCTION————————————//
