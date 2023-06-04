@@ -10,7 +10,7 @@ const https = require("https");
 // const { config } = require(__dirname + "/config.js");
 
 //————————————————————————checkLastGame————————————————————————//
-async function checkLastGame(lGame) {
+async function checkLastGame() {
     //get api from riot match history with count of 1
     let url =
         "https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/Hu46PTPaSMgs3zU3HU4RyfVdQHkBKWHssLEaj8vWfd_19qzXg3xlKu_AsUkBQp1_EG-lSge7NXRx4A/ids?start=0&count=1&api_key=" +
@@ -18,11 +18,11 @@ async function checkLastGame(lGame) {
     let response = await fetch(url);
     let data = await response.json();
     //check this with global variable(LastGame) and if they match return false
-    if (data[0] == lGame) {
+    if (data[0] == process.env.LastGame) {
         return false;
     }
     //else return true
-    LastGame = data[0];
+    process.env.LastGame = data[0];
     return true;
 }
 //————————————————————————checkLastGame————————————————————————//
@@ -32,7 +32,7 @@ async function checkLastGame(lGame) {
 async function checkMatch() {
     let url =
         "https://americas.api.riotgames.com/lol/match/v5/matches/" +
-        LastGame +
+        process.env.LastGame +
         "?api_key=" +
         process.env.RIOT_API_KEY;
     let response = await fetch(url);

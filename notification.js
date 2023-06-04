@@ -1,4 +1,5 @@
 const express = require("express");
+// const { config } = require(__dirname + "/config.js");
 const fetch = require("node-fetch");
 const nodemailer = require("nodemailer");
 var ejs = require("ejs");
@@ -16,7 +17,6 @@ const client = new Client({
     IntentsBitField.Flags.MessageContent,
   ],
 });
-// const { config } = require(__dirname + "/config.js");
 client.login(process.env.discord_token);
 
 //————————————————————————sendEmail————————————————————————//

@@ -12,7 +12,7 @@ const https = require("https");
 const myFunction1 = require(__dirname+"/RIOT_API.js");
 const myFunction2 = require(__dirname+"/etc.js");
 const myFunction3 = require(__dirname+"/notification.js");
-const PORT = process.env.PORT || 3030;
+const PORT = config.PORT || 3030;
 // const PORT = 3030;
 const { Client, IntentsBitField } = require('discord.js');
 const client = new Client({
@@ -28,7 +28,6 @@ client.login(process.env.discord_token);
 
 
 //————————————————————————Global Variables————————————————————————//
-let LastGame = "NA1_4648782588";
 let getTime;
 //————————————————————————Global Variables————————————————————————//
 
@@ -68,8 +67,8 @@ async function main() {
   setInterval(async function () {
     getTime = myFunction2.getCurrentTime();
     let lastGameCheck = false;
-    //call a function that returns true if kevin played another game, returns false if kevin didn't play another game.                ----> function name checkLastGame()
-    lastGameCheck = await myFunction1.checkLastGame(LastGame);
+    //call a function that returns matchId of last game played               ----> function name checkLastGame()
+    lastGameCheck = await myFunction1.checkLastGame();
     console.log(
       "Kevin played another game: " + lastGameCheck + " @:" + getTime
     );
