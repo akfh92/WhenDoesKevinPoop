@@ -40,7 +40,6 @@ app.get("/", async function (req, res) {
   let currentLevel = await myFunction1.getSummonerInfo();
   //get current rank and other level/tier data
   let currentRankJson = await myFunction1.getCurrentRank();
-  console.log(currentRankJson);
   let currentTime = myFunction2.getCurrentTime();
   let i = ''
   switch (currentRankJson[0].rank) {
