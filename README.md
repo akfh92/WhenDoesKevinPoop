@@ -2,7 +2,7 @@
 
 ## Description
 
-WhenDoesKevinPoop is a hilariously unique project aimed at keeping your friend Kevin's ego in check while he plays League of Legends. This whimsical creation sends out notifications whenever Kevin performs exceptionally poorly in the game. It's the perfect way to remind him, in the most delightful manner possible, that he may not be as good as he thinks he is.
+WhenDoesKevinPoop is a hilariously unique project aimed at keeping my friend Kevin's ego in check while he plays League of Legends. This whimsical creation sends out notifications whenever Kevin performs exceptionally poorly in the game. It's the perfect way to remind him, in the most delightful manner possible, that he may not be as good as he thinks he is.
 
 ## Table of Contents
 
