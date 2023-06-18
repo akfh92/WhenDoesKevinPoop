@@ -8,12 +8,12 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 const https = require("https");
-// const { config } = require(__dirname + "/config.js");
+const { config } = require(__dirname + "/config.js");
 const myFunction1 = require(__dirname+"/RIOT_API.js");
 const myFunction2 = require(__dirname+"/etc.js");
 const myFunction3 = require(__dirname+"/notification.js");
-const PORT = process.env.PORT || 3030;
-// const PORT = 3030;
+// const PORT = process.env.PORT || 3030;
+const PORT = 3030;
 const { Client, IntentsBitField } = require('discord.js');
 const client = new Client({
   intents: [
@@ -23,7 +23,7 @@ const client = new Client({
     IntentsBitField.Flags.MessageContent,
   ],
 });
-client.login(process.env.discord_token);
+client.login(config.discord_token);
 
 
 
@@ -84,7 +84,7 @@ async function main() {
       checkPoopedOutput = myFunction1.checkPooped(inGameData2);
     }
 
-    //if checkPooped return true, send email notification;                                                                             ----->  function name sendEmail()
+    //if checkPooped return true, send email notification and discord notification;                                                   ----->  function name sendEmail() / sendDiscordMessage()
     if (lastGameCheck && checkPoopedOutput) {
       myFunction3.sendEmail(inGameData2);
       myFunction3.sendDiscordMessage(inGameData2);
